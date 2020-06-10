@@ -122,8 +122,10 @@ resource aws_instance "hashicat" {
   subnet_id                   = aws_subnet.hashicat.id
   vpc_security_group_ids      = [aws_security_group.hashicat.id]
 
-  tags = {
+  tags = { # Add tags that can be enforced by policies here
     Name = "${var.prefix}-hashicat-instance"
+    Billable = "true"
+    Department = "devops"
   }
 }
 
